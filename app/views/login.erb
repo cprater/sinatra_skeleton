@@ -1,0 +1,15 @@
+<div class="container">
+
+	<% if @errors %>
+		<p class="errors">Invalid Username/Password</p>
+	<%end%>
+
+	<form id="login-form" action="/login" method="POST">
+		<label for="user-name">Username: </label>
+			<input id="user-name" type="text" name="name">
+		<label for="password">Password: </label>
+			<input id="password" type="password" name="password">
+		<input type="submit" value="Login">
+	</form>
+	
+</div>

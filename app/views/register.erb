@@ -1,0 +1,18 @@
+<div class="container">
+	<form id="create-account" action="/new/user" method="POST">
+
+		<% if @found_user %>
+			<p class="errors">User already exists</p>
+		<%elsif @bad_password %>
+			<p class="errors">Passowrds don't match</p>
+		<%end%>
+
+		<label for="user-name">Username: </label>
+			<input id="user-name" type="text" name="user[name]"><br>
+		<label for="password">Password: </label>
+			<input id="password" type="password" name="user[password]"><br>
+		<label for="password-confirmation">Confirm Password: </label>
+			<input id="password-confirmation" type="password" name="user[password_confirmation]"><br>
+			<input type="submit" value="Register">	
+	</form>
+</div>
