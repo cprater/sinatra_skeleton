@@ -1,5 +1,9 @@
 <div class="container">
   <h1>Welcome to Sinatra!</h1>
-  <a href="/login">Login</a>
+  <%if session[:current_user]%>
+  	<a href="/logout">Logout</a>
+  <%else%>
+  	<a href="/login">Login</a>
+  <%end%>
   <a href="/new/user">Register</a>
 </div>

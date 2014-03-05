@@ -1,7 +1,9 @@
 <div class="container">
 	<form id="create-account" action="/new/user" method="POST">
+			<%if @errors %>
+				<p class="errors">Something went wrong.</p>
+			<%end%>
 
-		
 			<p id="bad-name"class="errors hide">User already exists</p>
 		
 			<p id="bad-password" class="errors hide">Passwords don't match</p>
