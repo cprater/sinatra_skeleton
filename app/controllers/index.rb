@@ -6,6 +6,13 @@ get '/login' do
 	erb :login
 end
 
+get '/list_users' do
+	content_type :json
+	@user_names = []
+	User.all.each{|user| @user_names << user.name}
+	@user_names.to_json
+end
+
 get '/new/user' do 
 	erb :register
 end
@@ -33,18 +40,18 @@ post '/login' do
 	end
 end
 
-#CREATE USER IS FUCKED UP
-# post '/new/user' do 
-# 	user = User.new(params[:user])
 
-# 	if user.exists
-# 		@found_user = true
-# 		erb :register
-# 	elsif user.save
-# 		redirect "/profile/#{user.id}"
-# 	else
-# 		@bad_passsword = true
-# 		erb :register
-# 	end	
-# end
+post '/new/user' do 
+	user = User.new(params[:user])
+
+	if user.save
+		@found_user = true
+		erb :register
+	elsif user.save
+		redirect "/profile/#{user.id}"
+	else
+		@bad_passsword = true
+		erb :register
+	end	
+end
 
